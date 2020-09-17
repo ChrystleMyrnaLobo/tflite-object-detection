@@ -75,7 +75,6 @@ def postprocess_output(image_path):
 	df['xmax'] = df[3].apply(lambda x: min(img_width,(x * img_width)))
 	boxes_scaled = df[['ymin', 'xmin', 'ymax', 'xmax']].to_numpy()
 
-	classes = np.array(np.ones(classes.shape)) #TODO Incorrect classes returned. Used a quick fix for now
 	return boxes_scaled, classes, scores, num_det
 
 def draw_boundaryboxes(image_path, annotation_path):
